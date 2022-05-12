@@ -1,1 +1,29 @@
-<p>add-ride works!</p>
+<form>
+  <h2>Add New Ride</h2>
+  <label for="day">Select a Date</label>
+  <input type="date" name="day" id="day">
+  <label for="exercise">Exercise</label>
+  <select name="exercise" id="exercise">
+    <option value="none">None</option>
+    <option value="arena ride">Arena Ride</option>
+    <option value="trail ride">Trail Ride</option>
+    <option value="lunge">Lunge</option>
+    <option value="hand walk">Hand Walk</option>
+  </select>
+  <label for="tack">Tack Type</label>
+  <select name="tack" id="tack">
+    <option value="english">English</option>
+    <option value="western">Western</option>
+    <option value="bareback">Bareback</option>
+  </select>
+  <label for="walk">Walk Minutes</label>
+  <input type="number" name="walk" id="walk" min="0">
+  <label for="trot">Trot Minutes</label>
+  <input type="number" name="trot" id="trot" min="0">
+  <label for="canter">Canter Minutes</label>
+  <input type="number" name="canter" id="canter" min="0">
+  <label for="notes">Additional Notes</label>
+  <textarea name="notes" id="notes" rows="4" cols="30"></textarea>
+  <button type="submit">Add Ride</button>
+  <input type="reset">
+</form>

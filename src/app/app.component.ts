@@ -20,7 +20,7 @@ export class AppComponent {
   //trot / tolt time in minutes -- number
   //canter time in minutes -- number
   //notes / details -- string
-//displayRides component (like recipe list)
+//rides-list component (like recipe list)
 //singleRide component (like recipe item)
 //ride details component? 
 
