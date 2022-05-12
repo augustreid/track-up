@@ -1,25 +1,25 @@
 export class Ride {
-  public day: Date;
-  public exerciseType: string;
+  public day: string;
+  public exercise: string;
   public tack: string;
-  public walkInMinutes: number;
-  public trotInMinutes: number;
-  public canterInMinutes: number;
-  public rideNotes: string;
+  public walk: number;
+  public trot: number;
+  public canter: number;
+  public notes: string;
 
-  constructor(day: Date, 
-    exerciseType: string, 
+  constructor(day: string, 
+    exercise: string, 
     tack: string, 
-    walkInMinutes: number, 
-    trotInMinutes: number, 
-    canterInMinutes: number, 
-    rideNotes: string) {
+    walk: number, 
+    trot: number, 
+    canter: number, 
+    notes: string) {
       this.day = day;
-      this.exerciseType = exerciseType;
+      this.exercise = exercise;
       this.tack = tack;
-      this.walkInMinutes = walkInMinutes;
-      this.trotInMinutes = trotInMinutes;
-      this.canterInMinutes = canterInMinutes;
-      this.rideNotes = rideNotes;
+      this.walk = walk;
+      this.trot = trot;
+      this.canter = canter;
+      this.notes = notes;
   }
 }
