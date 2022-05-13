@@ -1,9 +1,9 @@
 <form>
   <h2>Add New Ride</h2>
   <label for="day">Select a Date</label>
-  <input type="date" name="day" id="day">
+  <input type="date" name="day" id="day" #dayInput>
   <label for="exercise">Exercise</label>
-  <select name="exercise" id="exercise">
+  <select name="exercise" id="exercise" #exerciseInput>
     <option value="None">None</option>
     <option value="Arena ride">Arena Ride</option>
     <option value="Trail ride">Trail Ride</option>
@@ -11,19 +11,27 @@
     <option value="Hand walk">Hand Walk</option>
   </select>
   <label for="tack">Tack Type</label>
-  <select name="tack" id="tack">
+  <select name="tack" id="tack" #tackInput>
     <option value="English">English</option>
     <option value="Western">Western</option>
     <option value="Bareback">Bareback</option>
   </select>
   <label for="walk">Walk Minutes</label>
-  <input type="number" name="walk" id="walk" min="0">
+  <input type="number" name="walk" id="walk" min="0" #walkInput>
   <label for="trot">Trot Minutes</label>
-  <input type="number" name="trot" id="trot" min="0">
+  <input type="number" name="trot" id="trot" min="0" #trotInput>
   <label for="canter">Canter Minutes</label>
-  <input type="number" name="canter" id="canter" min="0">
+  <input type="number" name="canter" id="canter" min="0" #canterInput>
   <label for="notes">Additional Notes</label>
-  <textarea name="notes" id="notes" rows="4" cols="30"></textarea>
-  <button type="submit">Add Ride</button>
+  <textarea name="notes" id="notes" rows="4" cols="30" #notesInput></textarea>
+  <button type="submit" (click)="onAddRide(
+    dayInput.value, 
+    exerciseInput.value, 
+    tackInput.value, 
+    walkInput.value,
+    trotInput.value, 
+    canterInput.value, 
+    notesInput.value
+  )">Add Ride</button>
   <input type="reset">
 </form>

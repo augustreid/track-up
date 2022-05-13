@@ -1,4 +1,5 @@
 <div>
+  <app-add-ride (addedRide)="onNewRide($event)"></app-add-ride>
   <h3>Previous Rides</h3>
   <app-single-ride
   *ngFor="let rideEl of rides"
