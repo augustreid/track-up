@@ -1,9 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Ride } from "./shared/ride.model";
+import { RidesService } from './shared/rides.service';
+
 @Component({
   selector: 'app-rides',
   templateUrl: './rides.component.html',
-  styleUrls: ['./rides.component.scss']
+  styleUrls: ['./rides.component.scss'],
+  providers: [RidesService]
 })
 export class RidesComponent  {
   // newRide: Ride;

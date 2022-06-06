@@ -1,8 +1,12 @@
-<div>
-  <app-add-ride (addedRide)="onNewRide($event)"></app-add-ride>
-  <h3>Previous Rides</h3>
-  <app-single-ride
-  *ngFor="let rideEl of rides"
-  [ride]="rideEl">
-  </app-single-ride>
+<div class="rides-container">
+  <div class="ride-form-container">
+    <!-- <app-add-ride></app-add-ride> -->
+  </div>
+  <div class="previous-rides-container">
+    <!-- <h3>Previous Rides</h3> -->
+    <app-single-ride
+    *ngFor="let rideEl of rides"
+    [ride]="rideEl">
+    </app-single-ride>
+  </div>
 </div>
