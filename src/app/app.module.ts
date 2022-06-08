@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http"
 
 import { AppComponent } from './app.component';
 import { AddRideComponent } from './rides/add-ride/add-ride.component';
@@ -20,7 +21,8 @@ import { RidesComponent } from './rides/rides.component';
     RidesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

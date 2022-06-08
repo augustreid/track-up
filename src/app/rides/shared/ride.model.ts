@@ -1,4 +1,6 @@
 export class Ride {
+  // public id: number;
+  // public horse_id: number;
   public day: string;
   public exercise: string;
   public tack: string;
@@ -7,7 +9,8 @@ export class Ride {
   public canter: number;
   public notes: string;
 
-  constructor(day: string, 
+  constructor(
+    day: string, 
     exercise: string, 
     tack: string, 
     walk: number, 

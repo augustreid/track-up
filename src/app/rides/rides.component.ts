@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Ride } from "./shared/ride.model";
 import { RidesService } from './shared/rides.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-rides',
@@ -9,13 +10,11 @@ import { RidesService } from './shared/rides.service';
   providers: [RidesService]
 })
 export class RidesComponent  {
-  // newRide: Ride;
-  // @Output() forwardRide = new EventEmitter<Ride>();
+constructor(private ridesService: RidesService) {}
 
-  // onNewRide(event: Ride) {
-  //   console.log(event)
-  //   this.newRide = event;
-  //   this.forwardRide.emit(this.newRide);
+  // ngOnInit() {
+  // const fetchedRides = this.ridesService.sendRides();
+  // console.log(fetchedRides)
   // }
 
 }

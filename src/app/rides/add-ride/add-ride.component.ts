@@ -9,7 +9,6 @@ import { RidesService } from '../shared/rides.service';
 })
 
 export class AddRideComponent  {
-  // @Output() addedRide = new EventEmitter<Ride>()
 
   constructor(private ridesService: RidesService) {}
 
@@ -17,7 +16,6 @@ export class AddRideComponent  {
     event.preventDefault();
     const newRide = new Ride(day, exercise, tack, Number(walk), Number(trot), Number(canter), notes);
     this.ridesService.addRide(newRide);
-    // this.addedRide.emit(newRide)
   }
 
 }
