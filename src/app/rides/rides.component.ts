@@ -10,11 +10,5 @@ import {HttpClient} from '@angular/common/http';
   providers: [RidesService]
 })
 export class RidesComponent  {
-constructor(private ridesService: RidesService) {}
-
-  // ngOnInit() {
-  // const fetchedRides = this.ridesService.sendRides();
-  // console.log(fetchedRides)
-  // }
 
 }
