@@ -13,9 +13,8 @@ export class AddRideComponent  {
   constructor(private ridesService: RidesService) {}
 
   onAddRide(day: string, exercise: string, tack: string, walk: string, trot: string, canter: string, notes: string) {
-    event.preventDefault();
     const newRide = new Ride(day, exercise, tack, Number(walk), Number(trot), Number(canter), notes);
-    this.ridesService.addRide(newRide);
+    this.ridesService.postRide(newRide).subscribe(res => console.log(res))
   }
 
 }

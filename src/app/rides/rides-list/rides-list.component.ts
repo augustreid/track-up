@@ -13,14 +13,8 @@ export class RidesListComponent implements OnInit {
   constructor(private ridesService: RidesService) {}
 
   ngOnInit() {
-  this.ridesService.getRides();
-    this.ridesService.ridesUpdated
-      .subscribe(
-        (rides: Ride[]) => {
-            this.rides = rides;
-          console.log(rides);
-        }
-      )
+    this.ridesService.getRides()
+      .subscribe(data => this.rides = data)
   }
 
     onNewRide(rideData: Ride) {
