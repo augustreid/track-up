@@ -1,6 +1,4 @@
 export class Ride {
-  // public id: number;
-  // public horse_id: number;
   public day: string;
   public exercise: string;
   public tack: string;

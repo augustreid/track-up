@@ -1,0 +1,27 @@
+<form>
+  <h2>Add New Horse</h2>
+  <label for="name">
+    Horse Name
+    <input type="input" name="name" id="name" #nameInput>
+  </label>
+  <label for="sex">
+    Sex
+    <select name="sex" id="sex" #sexInput>
+      <option value="Mare">Mare</option>
+      <option value="Gelding">Gelding</option>
+      <option value="Stallion">Stallion</option>
+    </select>
+  </label>
+  <label for="age">Age</label>
+  <input type="number" name="age" id="age" min="0" max="40" #ageInput>
+  <label for="imageUrl">Image URL</label>
+  <input type="input" name="imageUrl" id="imageUrl" #imageUrlInput>
+  <button type="submit" (click)="onAddHorse(
+    nameInput.value, 
+    sexInput.value, 
+    ageInput.value, 
+    imageUrlInput.value
+  )">Add Horse</button>
+  <input type="reset">
+</form>
+

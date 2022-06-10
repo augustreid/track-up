@@ -18,5 +18,4 @@ export class RidesService {
     console.log(ride)
     return  this.http.post("http://localhost:3000/api/v1/horses/1/rides/", ride)
    }
-
 }
