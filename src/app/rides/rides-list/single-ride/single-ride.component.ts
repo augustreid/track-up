@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { Ride } from "../../shared/ride.model"
+import { Ride } from "../../../shared/ride.model"
 
 @Component({
   selector: 'app-single-ride',

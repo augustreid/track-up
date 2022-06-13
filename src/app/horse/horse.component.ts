@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Horse } from '../shared/horse.model';
 
 @Component({
   selector: 'app-horse',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./horse.component.scss']
 })
 export class HorseComponent implements OnInit {
+  @Input() horse: Horse;
 
   constructor() { }
 

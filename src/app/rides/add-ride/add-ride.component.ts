@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Ride } from "../shared/ride.model";
-import { RidesService } from '../shared/rides.service';
+import { Ride } from "../../shared/ride.model";
+import { RidesService } from '../../shared/rides.service';
 
 @Component({
   selector: 'app-add-ride',

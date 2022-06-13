@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Ride } from "../shared/ride.model";
-import { RidesService } from '../shared/rides.service';
+import { Ride } from "../../shared/ride.model";
+import { RidesService } from '../../shared/rides.service';
 
 @Component({
   selector: 'app-rides-list',
@@ -16,8 +16,4 @@ export class RidesListComponent implements OnInit {
     this.ridesService.getRides()
       .subscribe(data => this.rides = data)
   }
-
-    onNewRide(rideData: Ride) {
-      this.rides.push(rideData)
-    }
 }

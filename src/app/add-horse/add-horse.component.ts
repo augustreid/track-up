@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Horse } from '../rides/shared/horse.model';
+import { Horse } from '../shared/horse.model';
+import { HorseService } from '../shared/horse.service';
 
 @Component({
   selector: 'app-add-horse',
@@ -8,11 +9,11 @@ import { Horse } from '../rides/shared/horse.model';
 })
 export class AddHorseComponent  {
 
-  // constructor(private ridesService: RidesService) {}
+  constructor(private horseService: HorseService) {}
 
   onAddHorse(name: string, sex: string, age: string, imageUrl: string) {
-    // const newHorse = new Horse(name, sex, Number(age), imageUrl);
-    // this.ridesService.postRide(newRide).subscribe(res => console.log(res))
+    const newHorse = new Horse(name, sex, Number(age), imageUrl);
+    this.horseService.postHorse(newHorse).subscribe(res => console.log(res))
   }
 
 }

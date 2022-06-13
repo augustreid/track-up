@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { Ride } from "./shared/ride.model";
-import { RidesService } from './shared/rides.service';
+import { Ride } from "../shared/ride.model";
+import { RidesService } from '../shared/rides.service';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
