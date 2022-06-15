@@ -1,9 +1,9 @@
-<!-- <app-horse
+<app-horse
    *ngFor="let horseEl of horses"
     [horse]="horseEl"
-></app-horse> -->
+></app-horse>
 <nav>
-    <a *ngFor="let horse of horses" routerLink="/horses/{{horse.name}}">
+    <a *ngFor="let horse of horses" routerLink="/horses/{{horse.id}}">
         {{horse.name}}
     </a>
 </nav>

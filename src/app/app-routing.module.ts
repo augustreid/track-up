@@ -5,10 +5,7 @@ import { HorseComponent } from './horse/horse.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: "horses/:id", component: HorseComponent },
-  // { path: "angel", component: HorseComponent },
-  // { path: "seamus", component: HorseComponent }
-  
+  { path: "horses/:idgi", component: HorseComponent }
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ export class HorseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.horse)
   }
 
 }
