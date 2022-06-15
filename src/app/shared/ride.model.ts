@@ -6,6 +6,8 @@ export class Ride {
   public trot: number;
   public canter: number;
   public notes: string;
+  public horse_id: number;
+  public id: number;
 
   constructor(
     day: string, 
@@ -14,7 +16,9 @@ export class Ride {
     walk: number, 
     trot: number, 
     canter: number, 
-    notes: string) {
+    notes: string,
+    horse_id?: number,
+    id?: number) {
       this.day = day;
       this.exercise = exercise;
       this.tack = tack;
@@ -22,5 +26,7 @@ export class Ride {
       this.trot = trot;
       this.canter = canter;
       this.notes = notes;
+      this.horse_id = horse_id;
+      this.id = id;
   }
 }
