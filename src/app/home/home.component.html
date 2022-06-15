@@ -1,6 +1,11 @@
-<app-horse
+<!-- <app-horse
    *ngFor="let horseEl of horses"
     [horse]="horseEl"
-></app-horse>
+></app-horse> -->
+<nav>
+    <a *ngFor="let horse of horses" routerLink="/horses/{{horse.name}}">
+        {{horse.name}}
+    </a>
+</nav>
 <app-add-horse></app-add-horse>
-<app-rides></app-rides>
+<!-- <app-rides></app-rides> -->

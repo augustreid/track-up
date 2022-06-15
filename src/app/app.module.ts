@@ -11,6 +11,7 @@ import { RidesComponent } from './rides/rides.component';
 import { HorseComponent } from './horse/horse.component';
 import { AddHorseComponent } from './add-horse/add-horse.component';
 import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
