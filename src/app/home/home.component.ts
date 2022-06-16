@@ -6,7 +6,7 @@ import { Horse } from '../shared/horse.model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [HorseService]
+  // providers: [HorseService]
 })
 export class HomeComponent implements OnInit {
 

@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-rides',
   templateUrl: './rides.component.html',
-  styleUrls: ['./rides.component.scss'],
-  providers: [RidesService]
+  styleUrls: ['./rides.component.scss']
+  // providers: [RidesService]
 })
 export class RidesComponent  {
 

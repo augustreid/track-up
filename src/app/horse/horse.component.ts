@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Horse } from '../shared/horse.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { HorseService } from '../shared/horse.service';
 
 @Component({
   selector: 'app-horse',
@@ -8,10 +9,10 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./horse.component.scss']
 })
 export class HorseComponent implements OnInit {
-  // @Input() horse: Horse;
+  horse: Horse;
   horseId: {id: number};
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private horseService: HorseService) { }
 
   ngOnInit(): void {
     this.horseId = {
@@ -23,7 +24,10 @@ export class HorseComponent implements OnInit {
           this.horseId.id = params["id"];
         }
       )
-      console.log(this.horseId.id)
+      {
+    this.horseService.getSingleHorse(this.horseId.id)
+      .subscribe(data => this.horse = data)
+    }
   }
 
 }

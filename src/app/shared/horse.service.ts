@@ -14,6 +14,10 @@ export class HorseService {
    return this.http.get<Horse[]>("http://localhost:3000/api/v1/horses/")
   }
 
+  getSingleHorse(id: number):Observable<Horse> {
+    return this.http.get<Horse>(`http://localhost:3000/api/v1/horses/${id}`)
+  }
+
    postHorse(horse: Horse): Observable<any> {
     console.log(horse)
     return  this.http.post("http://localhost:3000/api/v1/horses", horse)

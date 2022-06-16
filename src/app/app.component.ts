@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { HorseService } from './shared/horse.service';
+import { RidesService } from './shared/rides.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [HorseService, RidesService]
 })
 export class AppComponent {
   title = 'track-up';
