@@ -14,8 +14,8 @@ export class RidesService {
    return this.http.get<Ride[]>(`http://localhost:3000/api/v1/horses/${horseId}/rides`)
   }
 
-   postRide(ride: Ride): Observable<any> {
+   postRide(ride: Ride, horseId): Observable<any> {
     console.log(ride)
-    return  this.http.post("http://localhost:3000/api/v1/horses/1/rides/", ride)
+    return  this.http.post(`http://localhost:3000/api/v1/horses/${horseId}/rides`, ride)
    }
 }
