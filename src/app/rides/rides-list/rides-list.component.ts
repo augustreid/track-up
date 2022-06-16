@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Horse } from 'src/app/shared/horse.model';
 import { Ride } from "../../shared/ride.model";
 import { RidesService } from '../../shared/rides.service';
 
@@ -9,11 +10,12 @@ import { RidesService } from '../../shared/rides.service';
 })
 export class RidesListComponent implements OnInit {
   rides: Ride[];
+  @Input() horse: Horse;
 
   constructor(private ridesService: RidesService) {}
 
   ngOnInit() {
-    this.ridesService.getRides()
+    this.ridesService.getRides(this.horse.id)
       .subscribe(data => this.rides = data)
   }
 }

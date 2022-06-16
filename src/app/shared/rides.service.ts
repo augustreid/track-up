@@ -10,8 +10,8 @@ export class RidesService {
 
   constructor(private http: HttpClient) {}
 
-  getRides(): Observable<Ride[]> {
-   return this.http.get<Ride[]>("http://localhost:3000/api/v1/horses/1/rides")
+  getRides(horseId): Observable<Ride[]> {
+   return this.http.get<Ride[]>(`http://localhost:3000/api/v1/horses/${horseId}/rides`)
   }
 
    postRide(ride: Ride): Observable<any> {
