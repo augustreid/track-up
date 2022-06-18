@@ -1,0 +1,7 @@
+@use "./shared/_variables.scss" as v;
+
+body {
+  width: 100vw;
+  background-color: v.$mainBackground;
+  height: 100vh;
+}

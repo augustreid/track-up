@@ -1,0 +1,34 @@
+@use "../shared/_variables.scss" as v;
+
+.home {
+  @include v.flex(row, flex-start, flex-start);
+}
+
+.side-nav {
+  @include v.flex(column, flex-start, flex-start);
+  background-color: v.$grayGreen;
+  height: 100vh;
+  color: v.$mainBackground;
+  width: 20%;
+  
+  h2 {
+    margin: 15% 15% 3% 20%;
+  }
+}
+
+nav {
+  @include v.flex(column, flex-start, flex-start);
+  margin: 15%;
+}
+
+a {
+  color: v.$lightBackground;
+  text-decoration: none;
+  font-size: 150%;
+  margin: 15%;
+  padding: 5% 15%;
+}
+  a:hover {
+    cursor: pointer;
+    background-color: v.$lightGreen;
+  }
