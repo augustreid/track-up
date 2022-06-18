@@ -1,0 +1,12 @@
+$mainBackground: #F7F6F4;
+$headerBackground: #EDEAE7;
+$grayGreen: #3D4836;
+$lightGreen: #7D7B4F;
+$gold: #F3C969;
+
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
