@@ -17,6 +17,7 @@ import { AddHorseComponent } from './add-horse/add-horse.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DragCompComponent } from './drag-comp/drag-comp.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DragCompComponent } from './drag-comp/drag-comp.component';
     HorseComponent,
     AddHorseComponent,
     HomeComponent,
-    DragCompComponent
+    DragCompComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
