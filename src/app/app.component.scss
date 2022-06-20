@@ -5,3 +5,13 @@ body {
   background-color: v.$mainBackground;
   height: 100vh;
 }
+
+main {
+  @include v.flex(row, flex-start, flex-start);
+  width: 100vw;
+  background-color: lightBlue;
+}
+
+.sidebar {
+  width: 15rem;
+}

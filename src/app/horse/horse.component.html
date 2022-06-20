@@ -1,7 +1,9 @@
-<h3>{{ horse.name }}</h3> 
-<p>{{ horse.sex }}</p>
-<p>{{ horse.age }}</p>
-<img src="{{ horse.imageUrl }}" alt="photo of {{ horse.name }}"/>
+<div class="horse-profile">
+  <img src="{{ horse.imageUrl }}" alt="photo of {{ horse.name }}"/>
+  <h3>{{ horse.name }}</h3> 
+  <p>{{ horse.sex }}</p>
+  <p>{{ horse.age }}</p>
+</div>
 <a routerLink="/">Home</a>
 <app-rides-list [horse]="horse"></app-rides-list>
 <app-add-ride [horse]="horse"></app-add-ride>
