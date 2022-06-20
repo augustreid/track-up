@@ -1,17 +1,8 @@
-.rides-container {
-  display: flex;
-}
-
-// .ride-form-container {
-//   background-color: #1C7C54;
-//   width: 35%;
-// }
+@use "../../shared/_variables" as v;
 
 .previous-rides-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include v.flex(row, flex-start, flex-start);
   flex-wrap: wrap;
-  background-color: #26547C;
+  background-color: v.$mainBackground;
   width: 100%;
 }

@@ -16,6 +16,9 @@ export class RidesListComponent implements OnInit {
 
   ngOnInit() {
     this.ridesService.getRides(this.horse.id)
-      .subscribe(data => this.rides = data)
+        .subscribe(data => this.rides = data);
+      // .subscribe(data => this.rides = data.sort((a: any, b: any) => {
+      //   return a.day - b.day;
+      // }))
   }
 }

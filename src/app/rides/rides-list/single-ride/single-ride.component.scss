@@ -1,6 +1,20 @@
+@use "../../../shared/_variables" as v;
+
 article {
-  background-color: #F5F5F5;
+  background-color: white;
   padding: 1rem;
   margin: 2rem;
-  width: 10rem;
+  width: 13rem;
+  height: 18rem;
+  overflow-wrap: wrap;
+  overflow: scroll;
+  border: solid 1px gray;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px 2px lightGray;
+  background-color: white;
+}
+
+tr {
+  @include v.flex(row, space-between, flex-start);
+  margin: 7% 0;
 }

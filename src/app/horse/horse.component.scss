@@ -3,17 +3,35 @@
 .horse {
   @include v.flex(column, flex-start, flex-start);
   width: 100%;
+  background-color: v.$mainBackground;
 }
 
 .profile-form {
-  @include v.flex(row, space-evenly, flex-start);
+  @include v.flex(row, flex-start, center);
   width: 100%;
 }
 
 .horse-profile {
-  @include v.flex(column, flex-start, center)
+  @include v.flex(column, center, center);
+  height: 25vw;
+  width: 25vw;
+  margin: 5%;
+  padding: 3%;
+  border: solid 1px gray;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px 2px lightGray;
+  background-color: white;
 }
 
 img {
-  width: 10rem;
+  width: 50%;
 }
+
+p {
+  margin: 1%;
+}
+
+// form {
+//   height: 20vw;
+//   padding: 5%;
+// }

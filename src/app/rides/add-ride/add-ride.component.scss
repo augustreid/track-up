@@ -1,7 +1,44 @@
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem;
-}
+@use "../../shared/_variables" as v;
+
+//  form {
+//     // @include v.flex(column, center, center);
+//     height: 20vw;
+//     width: 20vw;
+//     // margin: 10%;
+//     padding: 3%;
+//     border: solid 1px gray;
+//     border-radius: 5px;
+//     box-shadow: 3px 3px 2px 2px lightGray;
+//   }
+
+  .form-container {
+    @include v.flex(column, flex-start, flex-start );
+    height: inherit;
+    width: 20vw;
+    margin: 15%;
+    // background-color: v.$lightBackground;
+    padding: 8%;
+    // padding: 3%;
+    // border: solid 1px gray;
+    // border-radius: 5px;
+  }
+
+  label {
+    padding: 2%;
+  }
+
+  .add-button {
+    width: inherit;
+    @include v.flex(row, flex-end, flex-start);
+  }
+
+  button {
+    background-color: #F7DDA1;
+    border: solid 1px gray;
+    width: 35%;
+    padding: 1%;
+  }
+
+  
+
 

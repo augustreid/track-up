@@ -1,9 +1,35 @@
 <article>
   <h4>{{ ride.day }}</h4>
-  <p>{{ ride.exercise }}</p>
-  <p>{{ ride.tack }}</p>
-  <p>Walk Minutes: {{ ride.walk }}</p>
-  <p>Trot Minutes: {{ ride.trot }}</p>
-  <p>Canter Minutes: {{ ride.canter }}</p>
-  <p>Additional Notes: {{ ride.notes }}</p>
+  <table>
+    <tr>
+      <th>Excercise</th>
+      <td>{{ ride.exercise }}</td>
+    </tr>
+    <tr>
+      <th>Tack</th>
+      <td>{{ ride.tack }}</td>
+    </tr>
+    <tr>
+      <th>Walk Minutes:</th>
+      <td>{{ ride.walk }}</td>
+    </tr>
+    <tr>
+      <th>Trot Minutes:</th>
+      <td>{{ ride.trot }}</td>
+    </tr>
+    <tr>
+      <th>Canter Minutes:</th>
+      <td>{{ ride.canter }}</td>
+    </tr>
+    <tr>
+      <th>Notes:</th>
+      <td>{{ ride.notes }}</td>
+    </tr>
+    <!-- <p>{{ ride.exercise }}</p>
+    <p>{{ ride.tack }}</p>
+    <p>Walk Minutes: {{ ride.walk }}</p>
+    <p>Trot Minutes: {{ ride.trot }}</p>
+    <p>Canter Minutes: {{ ride.canter }}</p>
+    <p>Additional Notes: {{ ride.notes }}</p> -->
+  </table>
 </article>

@@ -2,5 +2,6 @@
 
 .home {
   @include v.flex(column, flex-start, center);
+  width: 100%;
 }
 

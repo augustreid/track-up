@@ -1,41 +1,54 @@
 <form>
-  <h2>Add New Ride</h2>
-  <label for="day">
-    Select a Date
-    <input type="date" name="day" id="day" #dayInput>
-  </label>
-  <label for="exercise">
-    Exercise
-    <select name="exercise" id="exercise" #exerciseInput>
-      <option value="None">None</option>
-      <option value="Arena ride">Arena Ride</option>
-      <option value="Trail ride">Trail Ride</option>
-      <option value="Lunge">Lunge</option>
-      <option value="Hand walk">Hand Walk</option>
-    </select>
-  </label>
-    <label for="tack">Tack Type</label>
-  <select name="tack" id="tack" #tackInput>
-    <option value="English">English</option>
-    <option value="Western">Western</option>
-    <option value="Bareback">Bareback</option>
-  </select>
-  <label for="walk">Walk Minutes</label>
-  <input type="number" name="walk" id="walk" min="0" #walkInput>
-  <label for="trot">Trot Minutes</label>
-  <input type="number" name="trot" id="trot" min="0" #trotInput>
-  <label for="canter">Canter Minutes</label>
-  <input type="number" name="canter" id="canter" min="0" #canterInput>
-  <label for="notes">Additional Notes</label>
-  <textarea name="notes" id="notes" rows="4" cols="30" #notesInput></textarea>
-  <button type="submit" (click)="onAddRide(
-    dayInput.value, 
-    exerciseInput.value, 
-    tackInput.value, 
-    walkInput.value,
-    trotInput.value, 
-    canterInput.value, 
-    notesInput.value
-  )">Add Ride</button>
-  <input type="reset">
-</form>
+    <section class="form-container">
+    <h2>Add New Ride</h2>
+    <label for="day">
+      Select a Date
+      <input type="date" name="day" id="day" #dayInput>
+    </label>
+    <label for="exercise">
+      Exercise
+      <select name="exercise" id="exercise" #exerciseInput>
+        <option value="None">None</option>
+        <option value="Arena ride">Arena Ride</option>
+        <option value="Trail ride">Trail Ride</option>
+        <option value="Lunge">Lunge</option>
+        <option value="Hand walk">Hand Walk</option>
+      </select>
+    </label>
+    <label for="tack">
+      Tack Type
+      <select name="tack" id="tack" #tackInput>
+        <option value="English">English</option>
+        <option value="Western">Western</option>
+        <option value="Bareback">Bareback</option>
+      </select>
+      </label>
+    <label for="walk">
+      Walk Minutes
+      <input type="number" name="walk" id="walk" min="0" #walkInput>
+    </label>
+    <label for="trot">
+      Trot Minutes
+      <input type="number" name="trot" id="trot" min="0" #trotInput>
+    </label>
+    <label for="canter">
+      Canter Minutes
+      <input type="number" name="canter" id="canter" min="0" #canterInput>
+    </label>
+    <label for="notes">
+      Additional Notes
+      <textarea name="notes" id="notes" rows="3" cols="30" #notesInput></textarea>
+    </label>
+    <div class="add-button">
+      <button type="submit" (click)="onAddRide(
+        dayInput.value, 
+        exerciseInput.value, 
+        tackInput.value, 
+        walkInput.value,
+        trotInput.value, 
+        canterInput.value, 
+        notesInput.value
+        )">Add Ride</button>
+      </div>
+    </section>
+    </form>
