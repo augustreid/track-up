@@ -6,11 +6,11 @@ import { Horse } from '../shared/horse.model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  // providers: [HorseService]
 })
 export class HomeComponent implements OnInit {
 
   horses: Horse[];
+  today: Date = new Date()
 
   constructor(private horseService: HorseService) {}
 

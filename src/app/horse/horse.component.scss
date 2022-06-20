@@ -1,0 +1,19 @@
+@use "../shared/_variables" as v;
+
+.horse {
+  @include v.flex(column, flex-start, flex-start);
+  width: 100%;
+}
+
+.profile-form {
+  @include v.flex(row, space-evenly, flex-start);
+  width: 100%;
+}
+
+.horse-profile {
+  @include v.flex(column, flex-start, center)
+}
+
+img {
+  width: 10rem;
+}

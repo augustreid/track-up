@@ -6,6 +6,7 @@ header {
   padding: 0.8rem;
   @include v.flex(row, space-between, center);
   font-size: 125%;
+  position: sticky;
 }
 
 h1 {

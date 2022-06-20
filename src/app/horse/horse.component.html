@@ -1,9 +1,12 @@
-<div class="horse-profile">
-  <img src="{{ horse.imageUrl }}" alt="photo of {{ horse.name }}"/>
-  <h3>{{ horse.name }}</h3> 
-  <p>{{ horse.sex }}</p>
-  <p>{{ horse.age }}</p>
+<div class="horse">
+  <section class="profile-form">
+    <div class="horse-profile">
+      <img src="{{ horse.imageUrl }}" alt="photo of {{ horse.name }}"/>
+      <h3>{{ horse.name }}</h3> 
+      <p>{{ horse.sex }}</p>
+      <p>{{ horse.age }}</p>
+    </div>
+    <app-add-ride [horse]="horse"></app-add-ride>
+  </section>
+  <app-rides-list [horse]="horse"></app-rides-list>
 </div>
-<a routerLink="/">Home</a>
-<app-rides-list [horse]="horse"></app-rides-list>
-<app-add-ride [horse]="horse"></app-add-ride>
