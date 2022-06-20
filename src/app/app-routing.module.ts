@@ -4,7 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { HorseComponent } from './horse/horse.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  {path: '', redirectTo:'/home', pathMatch: 'full'},
   { path: "horses/:id", component: HorseComponent }
 ];
 

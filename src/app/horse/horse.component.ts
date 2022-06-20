@@ -22,6 +22,8 @@ export class HorseComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.horseId.id = params["id"];
+             this.horseService.getSingleHorse(this.horseId.id)
+                  .subscribe(data => this.horse = data)
         }
       )
       {
