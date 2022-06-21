@@ -1,0 +1,43 @@
+@use "../shared/_variables" as v;
+
+form {
+ @include v.flex(column, flex-start, flex-start);
+ width: 100%;
+}
+
+.add-horse {
+  @include v.flex(column, space-between, flex-start);
+  width: inherit;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+label {
+  margin: 3%;
+}
+
+ .add-button {
+   width: 80%;
+   @include v.flex(row, flex-end, flex-start);
+ }
+
+ button {
+  background-color: #F7DDA1;
+   border: none;
+   border-radius: 4px;
+   border: solid 1px gray;
+   box-shadow: 2px 2px lightGray;
+   width: 45%;
+   margin: 2%;
+   padding: 2%;
+ }
+
+ button:hover {
+   background-color: v.$gold;
+   cursor: pointer;
+ }
+
+ input {
+   border: solid 1px gray;
+    box-shadow: 2px 2px lightGray;
+ }

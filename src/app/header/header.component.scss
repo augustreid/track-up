@@ -7,6 +7,7 @@ header {
   @include v.flex(row, space-between, center);
   font-size: 125%;
   position: sticky;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {

@@ -4,6 +4,7 @@
   @include v.flex(column, flex-start, flex-start);
   width: 100%;
   background-color: v.$mainBackground;
+  font-family: 'Roboto', sans-serif;
 }
 
 .profile-form {
@@ -17,7 +18,7 @@
   width: 25vw;
   margin: 5%;
   padding: 3%;
-  border: solid 1px gray;
+  // border: solid 1px gray;
   border-radius: 5px;
   box-shadow: 3px 3px 2px 2px lightGray;
   background-color: white;
