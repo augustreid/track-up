@@ -10,21 +10,20 @@ import { RidesService } from '../../shared/rides.service';
 })
 export class RidesListComponent  implements OnInit {
  @Input() rides: Ride[];
-  sorted: Ride[];
+  sorted: Ride[]
 
   // @Input() horseId: {id: number};
 
   constructor(private ridesService: RidesService) {}
 
   ngOnInit() {
-    this.sortRides()
+    this.sortRides(this.rides)
   }
 
-  sortRides() {
-        if (this.rides) {
-      this.sorted = this.rides.sort((a: any, b: any) => {
+  sortRides(rides) {
+      this.sorted = rides.sort((a: any, b: any) => {
       return b.day - a.day;
     })
-  }
+    console.log(this.sorted)
   }
 }

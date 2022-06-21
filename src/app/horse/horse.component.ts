@@ -30,13 +30,11 @@ export class HorseComponent implements OnInit {
                   .subscribe(data => this.horse = data)
             this.ridesService.getRides(this.horseId.id)
                   .subscribe(data => this.rides = data.sort((a: any, b: any ) => {
-                  console.log( b.day - a.day)
                   return (b.day - a.day)
                 })
                   )
                 }
                 )
-                // this.sortRides()
               }
 
       sortRides()  {

@@ -15,7 +15,10 @@ export class RidesService {
   }
 
    postRide(ride: Ride, horseId): Observable<any> {
-    console.log(ride)
     return  this.http.post(`http://localhost:3000/api/v1/horses/${horseId}/rides`, ride)
+   }
+
+    deleteRide(rideId, horseId): Observable<any> {
+    return  this.http.delete(`http://localhost:3000/api/v1/horses/${horseId}/rides/${rideId}`)
    }
 }

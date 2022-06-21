@@ -14,6 +14,25 @@ article {
   background-color: white;
 }
 
+h4 {
+  text-align: center;
+}
+
+.delete {
+  @include v.flex(row, flex-end, flex-start);
+
+  p {
+    font-size: 85%;
+    margin: 1%;
+    color: darkRed;
+  }
+
+  p:hover {
+    cursor: pointer;
+    font-size: 110%;
+  }
+}
+
 tr {
   @include v.flex(row, space-between, flex-start);
   margin: 7% 0;

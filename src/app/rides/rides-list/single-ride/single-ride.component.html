@@ -1,4 +1,7 @@
 <article>
+  <div class="delete">
+    <p (click)="onDeleteRide()" routerLink="/horses/{{ride.horse_id}}">X</p>
+  </div>
   <h4>{{ ride.day }}</h4>
   <table>
     <tr>
@@ -25,11 +28,5 @@
       <th>Notes:</th>
       <td>{{ ride.notes }}</td>
     </tr>
-    <!-- <p>{{ ride.exercise }}</p>
-    <p>{{ ride.tack }}</p>
-    <p>Walk Minutes: {{ ride.walk }}</p>
-    <p>Trot Minutes: {{ ride.trot }}</p>
-    <p>Canter Minutes: {{ ride.canter }}</p>
-    <p>Additional Notes: {{ ride.notes }}</p> -->
   </table>
 </article>
