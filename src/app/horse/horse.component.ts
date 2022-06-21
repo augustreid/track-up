@@ -14,6 +14,7 @@ export class HorseComponent implements OnInit {
   horse: Horse;
   horseId: {id: number};
   rides: Ride[];
+  sorted: Ride[];
 
   constructor(private route: ActivatedRoute, private horseService: HorseService, private ridesService: RidesService) { }
 
@@ -28,9 +29,22 @@ export class HorseComponent implements OnInit {
              this.horseService.getSingleHorse(this.horseId.id)
                   .subscribe(data => this.horse = data)
             this.ridesService.getRides(this.horseId.id)
-                  .subscribe(data => this.rides = data)
-        }
-      )
-  }
-}
+                  .subscribe(data => this.rides = data.sort((a: any, b: any ) => {
+                  console.log( b.day - a.day)
+                  return (b.day - a.day)
+                })
+                  )
+                }
+                )
+                // this.sortRides()
+              }
+
+      sortRides()  {
+              this.rides.sort((a: any, b: any ) => {
+                  console.log( b.day - a.day)
+                  return (b.day - a.day)
+                })
+            }
+
+            }
 

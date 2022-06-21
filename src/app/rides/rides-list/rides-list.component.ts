@@ -8,20 +8,23 @@ import { RidesService } from '../../shared/rides.service';
   templateUrl: './rides-list.component.html',
   styleUrls: ['./rides-list.component.scss']
 })
-export class RidesListComponent  {
+export class RidesListComponent  implements OnInit {
  @Input() rides: Ride[];
-  // unsorted: Ride[];
+  sorted: Ride[];
 
   // @Input() horseId: {id: number};
 
   constructor(private ridesService: RidesService) {}
 
-  // ngOnInit() {
-  //   this.ridesService.getRides(this.horseId.id)
-  //       .subscribe(data => this.rides = data)
-  //     // .subscribe(data => this.rides = data.sort((a: any, b: any) => {
-  //     //   return a.day - b.day;
-  //     // }))
-  //     console.log(this.rides)
-  // }
+  ngOnInit() {
+    this.sortRides()
+  }
+
+  sortRides() {
+        if (this.rides) {
+      this.sorted = this.rides.sort((a: any, b: any) => {
+      return b.day - a.day;
+    })
+  }
+  }
 }
