@@ -1,0 +1,6 @@
+@use "../shared/_variables" as v;
+
+.container {
+  background-color: v.$mainBackground;
+}
+

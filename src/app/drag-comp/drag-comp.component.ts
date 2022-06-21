@@ -1,202 +1,159 @@
+import { ChangeDetectorRef } from '@angular/core';
 import {
-  Component,
   ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
+  Component,
+  OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours,
-} from 'date-fns';
-import { Subject } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView,
-} from 'angular-calendar';
+import { CalendarEvent, CalendarEventTitleFormatter } from 'angular-calendar';
+import { WeekViewHourSegment } from 'calendar-utils';
+import { addDays, addMinutes, endOfWeek } from 'date-fns';
+import { fromEvent } from 'rxjs';
+import { finalize, takeUntil } from 'rxjs/operators';
 
-const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
+function floorToNearest(amount: number, precision: number) {
+  return Math.floor(amount / precision) * precision;
+}
+
+
+function ceilToNearest(amount: number, precision: number) {
+  return Math.ceil(amount / precision) * precision;
+}
 
 @Component({
   selector: 'app-drag-comp',
+  templateUrl: './drag-comp.component.html',
+  styleUrls: ['./drag-comp.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [
-    `
-      h3 {
-        margin: 0 0 10px;
-      }
-
-      pre {
-        background-color: #f5f5f5;
-        padding: 15px;
-      }
-    `,
+  providers: [
+    {
+      provide: CalendarEventTitleFormatter,
+    },
   ],
-  templateUrl: 'drag-comp.component.html',
+  encapsulation: ViewEncapsulation.None,
 })
-export class DragCompComponent {
-  @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
+export class DragCompComponent implements OnInit {
+  viewDate = new Date();
+  weekStartsOn: 0 = 0;
+  dragToCreateActive = false;
+  events: CalendarEvent[] = [];
+  days: any[] = [];
+  slots: any[] = [];
+  constructor(private cdr: ChangeDetectorRef) {}
 
-  view: CalendarView = CalendarView.Month;
+  ngOnInit(): void {
+    this.initDays();
+  }
 
-  CalendarView = CalendarView;
-
-  viewDate: Date = new Date();
-
-  modalData: {
-    action: string;
-    event: CalendarEvent;
-  };
-
-  actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fas fa-fw fa-pencil-alt"></i>',
-      a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      },
-    },
-    {
-      label: '<i class="fas fa-fw fa-trash-alt"></i>',
-      a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter((iEvent) => iEvent !== event);
-        this.handleEvent('Deleted', event);
-      },
-    },
-  ];
-
-  refresh = new Subject<void>();
-
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-  ];
-
-  activeDayIsOpen: boolean = true;
-
-  constructor(private modal: NgbModal) {}
-
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
-        this.activeDayIsOpen = false;
-      } else {
-        this.activeDayIsOpen = true;
-      }
-      this.viewDate = date;
+  initDays() {
+    this.days = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    for (let i = 0; i < this.days.length; i++) {
+      let a = { day: this.days[i], time: [] };
+      this.slots.push(a);
     }
   }
 
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd,
-  }: CalendarEventTimesChangedEvent): void {
-    this.events = this.events.map((iEvent) => {
-      if (iEvent === event) {
-        return {
-          ...event,
-          start: newStart,
-          end: newEnd,
-        };
-      }
-      return iEvent;
-    });
-    this.handleEvent('Dropped or resized', event);
-  }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
-  }
-
-  addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
+  startDragToCreate(
+    segment: WeekViewHourSegment,
+    mouseDownEvent: MouseEvent,
+    segmentElement: HTMLElement
+  ) {
+    const dragToSelectEvent: CalendarEvent = {
+      id: this.events.length,
+      title: 'New slot',
+      start: segment.date,
+      meta: {
+        tmpEvent: true,
       },
-    ];
+      actions: [
+        {
+          label: '',
+          onClick: ({ event }: { event: CalendarEvent }): void => {
+            this.events = this.events.filter((iEvent) => iEvent !== event);
+            this.removeSlot(event.id);
+          },
+        },
+      ],
+    };
+    this.events = [...this.events, dragToSelectEvent];
+
+    const segmentPosition = segmentElement.getBoundingClientRect();
+    this.dragToCreateActive = true;
+    const endOfView = endOfWeek(this.viewDate, {
+      weekStartsOn: this.weekStartsOn,
+    });
+
+    fromEvent(document, 'mousemove')
+      .pipe(
+        finalize(() => {
+          delete dragToSelectEvent.meta.tmpEvent;
+          this.dragToCreateActive = false;
+          this.refresh();
+        }),
+        takeUntil(fromEvent(document, 'mouseup'))
+      )
+      .subscribe((mouseMoveEvent: MouseEvent) => {
+        const minutesDiff = ceilToNearest(
+          mouseMoveEvent.clientY - segmentPosition.top,
+          30
+        );
+
+        const daysDiff =
+          floorToNearest(
+            mouseMoveEvent.clientX - segmentPosition.left,
+            segmentPosition.width
+          ) / segmentPosition.width;
+
+        const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
+        if (newEnd > segment.date && newEnd < endOfView) {
+          dragToSelectEvent.end = newEnd;
+        }
+        this.refresh();
+      });
   }
 
-  deleteEvent(eventToDelete: CalendarEvent) {
-    this.events = this.events.filter((event) => event !== eventToDelete);
+  private refresh() {
+    this.events = [...this.events];
+    this.cdr.detectChanges();
+    this.getSlots();
   }
 
-  setView(view: CalendarView) {
-    this.view = view;
+  convertTime(t) {
+    return new Date(t).toTimeString();
   }
 
-  closeOpenMonthViewDay() {
-    this.activeDayIsOpen = false;
+  convertDay(d) {
+    return new Date(d).toLocaleString('en-us', {
+      weekday: 'long',
+    });
+  }
+
+  getSlots() {
+    this.slots.map((day, i) => {
+      this.slots[i].time = [];
+      this.events.forEach((e) => {
+        if (day.day == this.convertDay(e.start)) {
+          this.slots[i].time.push({
+            startTime: e.start,
+            endTime: e.end,
+            id: e.id,
+          });
+        }
+      });
+    });
+  }
+
+  removeSlot(id) {
+    for (let j = 0; j < this.slots.length; j++) {
+      this.slots[j].time = this.slots[j].time.filter((t) => t.id !== id);
+    }
   }
 }
